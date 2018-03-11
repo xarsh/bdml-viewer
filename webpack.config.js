@@ -33,7 +33,7 @@ if (process.env.NODE_ENV === 'production') {
   module.exports.devtool = undefined
   module.exports.plugins = (module.exports.plugins || []).concat([
     new webpack.DefinePlugin({'process.env': {NODE_ENV: '"production"'}}),
-    new UglifyJsPlugin(),
+    new UglifyJsPlugin({test: /\.js($|\?)/i}),
     new webpack.LoaderOptionsPlugin({minimize: true})
   ])
 }

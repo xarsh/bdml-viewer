@@ -1,6 +1,6 @@
 {
     "extends": "standard",
-    "env": {
+    "globals": {
       "THREE": true
     },
     "plugins": [
