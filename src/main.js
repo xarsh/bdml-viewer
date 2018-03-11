@@ -57,7 +57,7 @@ document.getElementById('auto').onchange = e => {
 
 document.querySelector('select[name="type"]').onchange = async e => {
   document.getElementById('frame-counter').innerText = 'Loading...'
-  const res = await (await window.fetch(`/dist/components/${e.target.value}.json`)).json()
+  const res = await (await window.fetch(`./dist/components/${e.target.value}.json`)).json()
   frames = res.frames.map(frame => ({
     time: frame.time,
     vertices: frame.positions.map(v => new THREE.Vector3(...v)),
