@@ -1,4 +1,4 @@
-# BDML Visualizer
+# BDML Viewer
 ## Build Setup
 
 ``` bash

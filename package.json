@@ -1,6 +1,6 @@
 {
-  "name": "bdml-renderer",
-  "description": "BDML renderer",
+  "name": "bdml-viewer",
+  "description": "BDML viewer",
   "version": "1.0.0",
   "author": "Takao Naito <xarsh@outlook.com>",
   "license": "MIT",
