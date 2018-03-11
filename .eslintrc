@@ -1,0 +1,9 @@
+{
+    "extends": "standard",
+    "env": {
+      "THREE": true
+    },
+    "plugins": [
+      "html"
+    ]
+}
