@@ -17,7 +17,9 @@ scene.add(camera)
 
 const geometry = new THREE.Geometry()
 const material = new THREE.MeshLambertMaterial({color: 0xffffff, side: THREE.DoubleSide})
-scene.add(new THREE.Mesh(geometry, material))
+const mesh = new THREE.Mesh(geometry, material)
+mesh.scale.y = 0.7
+scene.add(mesh)
 
 const animate = () => {
   window.requestAnimationFrame(animate)
@@ -44,15 +46,13 @@ document.getElementById('time').oninput = e => {
 }
 
 document.getElementById('auto').onchange = e => {
-  if (e.target.checked) {
-    window.interval = setInterval(() => {
-      time = (time + 1) % frames.length
-      document.getElementById('time').value = (time / frames.length) * 100
-      updateFrame()
-    }, 200)
-  } else {
-    clearInterval(window.interval)
-  }
+  if (!e.target.checked) return clearInterval(window.interval)
+
+  window.interval = setInterval(() => {
+    time = (time + 1) % frames.length
+    document.getElementById('time').value = (time / frames.length) * 100
+    updateFrame()
+  }, 200)
 }
 
 document.querySelector('select[name="type"]').onchange = async e => {
