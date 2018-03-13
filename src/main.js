@@ -1,24 +1,26 @@
 import 'babel-polyfill'
 
-const renderer = new THREE.WebGLRenderer({ antialias: true })
+const renderer = new THREE.WebGLRenderer({antialias: true})
 renderer.setSize(window.innerWidth, window.innerHeight)
 renderer.setPixelRatio(window.devicePixelRatio)
 document.getElementById('app').appendChild(renderer.domElement)
 
 const scene = new THREE.Scene()
+const gridHelper = new THREE.GridHelper(1000, 50)
+gridHelper.rotation.x = Math.PI / 2 // Grid should be placed as xy-plane
+scene.add(gridHelper)
 scene.add(new THREE.AxesHelper(200))
-scene.add(new THREE.GridHelper(500, 50))
 
 const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.01, 10000)
 const controls = new THREE.OrbitControls(camera, renderer.domElement)
-camera.position.set(180, 180, 360)
+camera.position.set(240, 240, 480)
 camera.add(new THREE.PointLight(0xffffff))
 scene.add(camera)
 
 const geometry = new THREE.Geometry()
 const material = new THREE.MeshLambertMaterial({color: 0xffffff, side: THREE.DoubleSide})
 const mesh = new THREE.Mesh(geometry, material)
-mesh.scale.y = 0.7
+mesh.scale.z = 2 // Magnify cell's thickness
 scene.add(mesh)
 
 const animate = () => {
