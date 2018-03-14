@@ -12,10 +12,12 @@ scene.add(gridHelper)
 scene.add(new THREE.AxesHelper(200))
 
 const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.01, 10000)
-const controls = new THREE.OrbitControls(camera, renderer.domElement)
-camera.position.set(240, 240, 480)
+camera.position.set(360, 360, 240)
+camera.up.set(0, 0, 1)
 camera.add(new THREE.PointLight(0xffffff))
 scene.add(camera)
+
+const controls = new THREE.OrbitControls(camera, renderer.domElement)
 
 const geometry = new THREE.Geometry()
 const material = new THREE.MeshLambertMaterial({color: 0xffffff, side: THREE.DoubleSide})
